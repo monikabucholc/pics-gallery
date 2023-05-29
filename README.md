@@ -1,7 +1,17 @@
-# Vue 3 + Vite
+<a href='https://monikabucholc.github.io/pics-gallery/'>https://monikabucholc.github.io/pics-gallery/</a>
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## About the Project ##
+Input a number of pictures you want to load and you'll get a random gallery of pictures sorted by their authors' names. By default 20 pictures are displayed.
+In this project https://picsum.photos/ API is used to load images.
 
-## Recommended IDE Setup
+## Technologies ##
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+* **Vue** 3.2
+* **Vuetify** 3.3
+* **Vuex** 4.0
+
+## Setup ##
+Download project files. Go to your folder:
+$ cd ../{project-folder}
+$ npm install
+$ npm run dev

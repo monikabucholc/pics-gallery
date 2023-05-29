@@ -47,7 +47,7 @@ const handleLoadImages = () => {
   <v-app-bar color="white" class="pa-4 text-blue-grey-darken-4" elevation="4">
     <v-app-bar-title class="font-weight-bold">Random Frame</v-app-bar-title>
     <template v-slot:prepend>
-      <v-icon size="large" icon="mdi-image-outline" />
+      <v-icon class="d-none d-md-inline-block" size="large" icon="mdi-image-outline" />
     </template>
     <template v-slot:append>
       <v-form @submit.prevent="handleLoadImages" method="post" class="d-flex align-center mt-0">
