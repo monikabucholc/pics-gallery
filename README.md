@@ -11,7 +11,8 @@ In this project https://picsum.photos/ API is used to load images.
 * **Vuex** 4.0
 
 ## Setup ##
-Download project files. Go to your folder:
+Download the project files then:
+```bash
 $ cd ../{project-folder}
 $ npm install
 $ npm run dev
