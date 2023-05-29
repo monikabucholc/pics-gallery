@@ -1,15 +1,16 @@
-
 import { createStore } from 'vuex'
 
 const store = createStore({
   state () {
     return {
+      //Number of images to display - user input
       imageCount: 20,
+      //For pagination
       currentPage: 1
     }
   },
   mutations: {
-    updateImagesNumber (state, number) {
+    updateImageCount (state, number) {
         state.imageCount = number;
     },
     updateCurrentPage (state, number) {

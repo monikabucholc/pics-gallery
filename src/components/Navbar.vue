@@ -1,41 +1,42 @@
 <script setup>
-import { useStore } from 'vuex';
-import { ref } from 'vue';
+  import { useStore } from 'vuex';
+  import { ref } from 'vue';
 
-const store = useStore()
-let imgNumber = ref(null);
+  const store = useStore();
+  //Value entered by user
+  let imgNumber = ref(null);
 
-//Validation rules for input
-const checkIfValid = (val) => {
-  const numberValue = parseInt(val);
-  if (
-    !isNaN(numberValue) && 
-    numberValue % 1 === 0 &&
-    numberValue >= 1 && 
-    numberValue <= 100) {
-      return true
-    } else {
-      return false
-    }
-}
-const rules = [
-  value => {
-    if (value) {
-      if (checkIfValid(value)) {
+  //Validation rules for input
+  const checkIfValid = (val) => {
+    if (
+      !isNaN(val) && 
+      val % 1 === 0 &&
+      val >= 1 && 
+      val <= 100) {
         return true
       } else {
-        return 'Input a number between 1 and 100'
+        return false
       }
-    } else {
-      return 'Input a number'
-    }
   }
-];
+
+  const rules = [
+    value => {
+      if (value) {
+        if (checkIfValid(value)) {
+          return true
+        } else {
+          return 'Input a number between 1 and 100'
+        }
+      } else {
+        return 'Input a number'
+      }
+    }
+  ];
 
 //Submit
-const handleImagesNumber = () => {
+const handleLoadImages = () => {
   if (imgNumber.value && checkIfValid(imgNumber.value)) {
-    store.commit('updateImagesNumber', imgNumber.value);
+    store.commit('updateImageCount', imgNumber.value);
     imgNumber.value = null;
   } else return
 }
@@ -43,11 +44,14 @@ const handleImagesNumber = () => {
 </script>
 
 <template>
-  <v-app-bar color="white" class="pa-4" elevation="4">
+  <v-app-bar color="white" class="pa-4 text-blue-grey-darken-4" elevation="4">
     <v-app-bar-title class="font-weight-bold">Random Frame</v-app-bar-title>
+    <template v-slot:prepend>
+      <v-icon size="large" icon="mdi-image-outline" />
+    </template>
     <template v-slot:append>
-      <v-form @submit.prevent="handleImagesNumber" method="post" class="d-flex align-center mt-0">
-        <span class="text-body-1 mr-2">Input number of images:</span>
+      <v-form @submit.prevent="handleLoadImages" method="post" class="d-flex align-center mt-0">
+        <span class="text-body-1 mr-2">Input number of images to load:</span>
         <v-text-field
           v-model="imgNumber"
           :rules="rules"

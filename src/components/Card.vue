@@ -1,12 +1,12 @@
 <script setup>
-const props = defineProps({
+  const props = defineProps({
     url: String,
     author: String
-})
+  })
 </script>
 
 <template>
-  <v-card class="mx-0 text-center" elevation="4">
+  <v-card class="mx-0 text-center text-blue-grey-darken-4" elevation="4">
     <v-img
       :src="props.url"
       height="200px"
@@ -19,5 +19,4 @@ const props = defineProps({
       Author
     </v-card-subtitle>
   </v-card>
-
 </template>
